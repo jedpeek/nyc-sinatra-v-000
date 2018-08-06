@@ -11,12 +11,11 @@ class FiguresController < ApplicationController
 
   get '/figures/:id' do
     @figure = Figure.find_by_id(params[:id])
-    binding.pry
     erb :'figures/show'
   end
 
   post '/figures' do
-    @figure = Figure.create(params[:figure])
+    @figure = Figure.create(params["figure"])
     if !params[:landmark][:name].empty?
       @figure.landmarks << Landmark.create(params[:landmark])
     end
