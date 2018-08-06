@@ -33,10 +33,7 @@ class FiguresController < ApplicationController
     redirect to "/figures/#{@figure.id}"
   end
 
-  get '/figures/:id/edit' do
-    @figure = Figure.find_by_id(params[:id])
-    erb :'figures/edit'
-  end
+
 
   post '/figures/:id' do
     @figure = Figure.find_by_id(params[:id])
